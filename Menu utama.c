@@ -12,10 +12,8 @@ int main() {
         printf("4. Keluar\n");
         printf("Masukkan Menu: ");
         
-        // Membaca input dari pengguna
         scanf("%d", &pilihan);
 
-        // Menentukan aksi berdasarkan input
         switch (pilihan) {
             case 1:
 
