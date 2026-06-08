@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 
 typedef struct { 	//Pake typedef agar di main tinggal panggil namanya saja ex: Hadiah, ini biar tipe data beda tp bisa jd satu yaa
     int x;
@@ -20,7 +21,12 @@ void START(FILE *arsip);  	//START buat nnti program mulai baca karakter awal
 void ADV(FILE *arsip);	  	//ADV buat maju satu karakter ke depan jika udah baca file sebelumnya
 void wait(float x);		// deklarasi fungsi wait 
 void AbaikanBlank(FILE *arsip);
-          
+void baca_hadiah(Hadiah arrHadiah[], int *jumlahHadiah);
+void baca_gerak(Gerak arrGerak[], int *jumlahGerak);
+void tulisHadiah(Hadiah arrHadiah[], int *jumlahHadiah, int x, int y, char nama[], int skor);
+void tulisGerak(Gerak arrGerak[], int *jumlahGerak, int x, int y);
+void cetakTabelHadiah(Hadiah arrHadiah[], int jumlahHadiah);
+
 int baca_angka(FILE *arsip);	//ini buat baca dr file karakter perkarakter angka jadi satu. ex: inputan buat x itu 1,0 dijadiin 10
 void baca_string(FILE *arsip, char *s); //klo ini buat baca dr file karakter huruf ex: a,a jadi aa
 
