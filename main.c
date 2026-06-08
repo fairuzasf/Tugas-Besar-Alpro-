@@ -24,7 +24,7 @@ int main() {
             
                 break;
             case 4:
-    		system("exit");
+    		printf("exit");
                 break;
             default:
                 printf("Pilihan tidak valid. Silakan masukkan angka 1-4.\n");
@@ -34,6 +34,4 @@ int main() {
 
     return 0;
 }
-=======
-#include "header_mesin.h"
->>>>>>> Stashed changes
+
