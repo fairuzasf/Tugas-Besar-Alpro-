@@ -2,8 +2,10 @@
 
 int main() {
     int pilihan;
-     Hadiah arrHadiah[100];
-     int jumlahHadiah = 0;
+    int x, y, skor;
+    char nama[50];
+    Hadiah arrHadiah[100];
+    int jumlahHadiah = 0;
 
     do {
         // Menampilkan teks menu
