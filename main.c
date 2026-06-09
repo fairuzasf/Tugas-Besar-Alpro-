@@ -1,11 +1,10 @@
 #include "header_mesin.h"
-
 int main() {
     int pilihan;
-    int x, y, skor;
-    char nama[50];
-    Hadiah arrHadiah[100];
+    Hadiah arrHadiah[1000];
     int jumlahHadiah = 0;
+    Gerak arrGerak[1000];
+    int jumlahGerak = 0;
 
     do {
         // Menampilkan teks menu
@@ -15,35 +14,36 @@ int main() {
         printf("3. Simulasi Lite O\n");
         printf("4. Keluar\n");
         printf("Masukkan Menu: ");
-
+        
         scanf("%d", &pilihan);
 
         switch (pilihan) {
             case 1:
-            baca_hadiah(arrHadiah, &jumlahHadiah);
-        cetakTabelHadiah(arrHadiah, jumlahHadiah);
-                printf("\n--- TAMBAH HADIAH ---\n");
-                printf("Masukkan koordinat X: ");
-                scanf("%d", &x);
-                printf("Masukkan koordinat Y: ");
-                scanf("%d", &y);
-                printf("Masukkan Nama Hadiah : ");
-                scanf("%s", nama);
-                printf("Masukkan Skor: ");
-                scanf("%d", &skor);
-                tulisHadiah(arrHadiah, &jumlahHadiah, x, y, nama, skor);
-
-                printf("\n");
-                break;
-
+	      baca_hadiah(arrHadiah, &jumlahHadiah);
+              cetakTabelHadiah(arrHadiah, jumlahHadiah);
+    
+ 	    char jawab;
+    	    printf("ingin mengisi: ");
+	    scanf(" %c", &jawab);
+    
+	    if (jawab == 'Y' || jawab == 'y') {
+	        int x, y, skor;
+	        char nama[50];
+        	printf("x: ");    scanf("%d", &x);
+	        printf("y: ");    scanf("%d", &y);
+        	printf("nama: "); scanf("%s", nama);
+	        printf("skor: "); scanf("%d", &skor);
+        	tulisHadiah(arrHadiah, &jumlahHadiah, x, y, nama, skor);
+    	    }
+	    break;
             case 2:
-
+            
                 break;
             case 3:
-
+            
                 break;
             case 4:
-                printf("exit");
+    		printf("exit");
                 break;
             default:
                 printf("Pilihan tidak valid. Silakan masukkan angka 1-4.\n");
@@ -53,3 +53,4 @@ int main() {
 
     return 0;
 }
+
