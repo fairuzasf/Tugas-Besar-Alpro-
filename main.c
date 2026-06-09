@@ -7,6 +7,8 @@ int main() {
     char jawab;
     Hadiah arrHadiah[100];
     int jumlahHadiah = 0;
+	Gerak arrGerak[100];
+	int jumlahGerak = 0;
 
     do {
         // Menampilkan teks menu
@@ -39,6 +41,19 @@ int main() {
 	    }
             break;
             case 2:
+				printf("Ingin mengisi: ");
+				scanf(" %c", &jawab);
+				
+                if (jawab == 'Y' || jawab == 'y') {
+                    printf("x : ");
+                    scanf("%d", &x);
+                    printf("y : ");
+                    scanf("%d", &y);
+                    printf("nama : ");
+					
+					tulisGerak(arrGerak, &jumlahGerak, x, y);
+				
+				}
 
                 break;
             case 3:
