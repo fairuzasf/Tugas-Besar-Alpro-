@@ -4,6 +4,7 @@ int main() {
     int pilihan;
     int x, y, skor;
     char nama[50];
+    char jawab;
     Hadiah arrHadiah[100];
     int jumlahHadiah = 0;
 
@@ -20,22 +21,23 @@ int main() {
 
         switch (pilihan) {
             case 1:
-            baca_hadiah(arrHadiah, &jumlahHadiah);
-        cetakTabelHadiah(arrHadiah, jumlahHadiah);
-                printf("\n--- TAMBAH HADIAH ---\n");
-                printf("Masukkan koordinat X: ");
+        baca_hadiah(arrHadiah, &jumlahHadiah);
+            cetakTabelHadiah(arrHadiah, jumlahHadiah);
+
+            printf("Ingin mengisi: ");
+            scanf(" %c", &jawab);
+            if (jawab == 'Y' || jawab == 'y') {
+                printf("x : ");
                 scanf("%d", &x);
-                printf("Masukkan koordinat Y: ");
+                printf("y : ");
                 scanf("%d", &y);
-                printf("Masukkan Nama Hadiah : ");
+                printf("nama : ");
                 scanf("%s", nama);
-                printf("Masukkan Skor: ");
+                printf("skor : ");
                 scanf("%d", &skor);
                 tulisHadiah(arrHadiah, &jumlahHadiah, x, y, nama, skor);
-
-                printf("\n");
-                break;
-
+	    }
+            break;
             case 2:
 
                 break;
