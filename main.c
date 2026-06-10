@@ -51,10 +51,38 @@ int main() {
                     scanf("%d", &y);
                     printf("nama : ");
 					
-					tulisGerak(arrGerak, &jumlahGerak, x, y);
+                     // Proses Sorting 
+                    int i = jumlahHadiah - 1; 
+                    /* Pola urutan scanning papan dengan menggeser elemen data lama ke arah kanan array selama:
+                    Posisi koordinat Y lama nilainya lebih besar dari Y baru
+                    Koordinat Y bernilai kembar, namun posisi X lama lebih besar dari x baru */
+                    while (i >= 0 && (arrHadiah[i]. y > y || (arrHadiah[i].y == y && arrHadiah[i].x > x))) {
+                        arrHadiah[i + 1] = arrHadiah[i]; // Proses pergeseran urutan elemen 
+                        i--; 
+                    }
+                    // Sisipkan data inputan baru dari pengguna ke dalam indeks array yang sudah kosong terurut
+                    arrHadiah[i + 1].x = x;
+                    arrHadiah[i + 1].y = y;
+                    arrHadiah[i + 1].skor = skor; 
+                    strcpy(arrHadiah[i + 1].nama, nama);
+                    // Menaikkan total counter jumlah data hadiah aktif
+                    jumlahHadiah++; 
+
+                    // 2. Menulis ulang hasil array yang sudah terurut ke file fisik 
+                    FILE *arsip = fopen("thadiah.txt", "w");
+                    if (arsip != NULL) {
+                        for (int j = 0; j < jumlahHadiah; j++) {
+                            fprintf(arsip, "%d %d %s %d\n", arrHadiah[j].x  arrHadiah[j].y, arrHadiah[j].nama, arrHadiah[j].skor);
+                        }
+                        // Mencetak penanda token batas akhir dengan (EOP-Mark) 
+                        fprintf(arsip, "## ## ## ##\n");
+                        fclose(arsip);
+                        printf("Berhasil mencatat hadiah '%s' di koordinat (%d, %d) secara terurut.\n", nama, x, y);
+                    }else {
+                        printf("Gagal membuka file thadiah.txt untuk ditulis!\n");
+                    }
 				
 				}
-
                 break;
             case 3:
 
