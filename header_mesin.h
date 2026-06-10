@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
+#include <stdlib.h>
 
 typedef struct { 	//Pake typedef agar di main tinggal panggil namanya saja ex: Hadiah, ini biar tipe data beda tp bisa jd satu yaa
     int x;
