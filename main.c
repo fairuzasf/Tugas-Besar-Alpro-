@@ -37,21 +37,7 @@ int main() {
                 scanf("%s", nama);
                 printf("skor : ");
                 scanf("%d", &skor);
-                tulisHadiah(arrHadiah, &jumlahHadiah, x, y, nama, skor);
-	    }
-            break;
-            case 2:
-				printf("Ingin mengisi: ");
-				scanf(" %c", &jawab);
-				
-                if (jawab == 'Y' || jawab == 'y') {
-                    printf("x : ");
-                    scanf("%d", &x);
-                    printf("y : ");
-                    scanf("%d", &y);
-                    printf("nama : ");
-					
-                     // Proses Sorting 
+                // Proses Sorting 
                     int i = jumlahHadiah - 1; 
                     /* Pola urutan scanning papan dengan menggeser elemen data lama ke arah kanan array selama:
                     Posisi koordinat Y lama nilainya lebih besar dari Y baru
@@ -72,7 +58,7 @@ int main() {
                     FILE *arsip = fopen("thadiah.txt", "w");
                     if (arsip != NULL) {
                         for (int j = 0; j < jumlahHadiah; j++) {
-                            fprintf(arsip, "%d %d %s %d\n", arrHadiah[j].x  arrHadiah[j].y, arrHadiah[j].nama, arrHadiah[j].skor);
+                            fprintf(arsip, "%d %d %s %d\n", arrHadiah[j].x, arrHadiah[j].y, arrHadiah[j].nama, arrHadiah[j].skor);
                         }
                         // Mencetak penanda token batas akhir dengan (EOP-Mark) 
                         fprintf(arsip, "## ## ## ##\n");
@@ -82,6 +68,21 @@ int main() {
                         printf("Gagal membuka file thadiah.txt untuk ditulis!\n");
                     }
 				
+	    }
+            break;
+            case 2:
+				printf("Ingin mengisi: ");
+				scanf(" %c", &jawab);
+				
+                if (jawab == 'Y' || jawab == 'y') {
+                    printf("x : ");
+                    scanf("%d", &x);
+                    printf("y : ");
+                    scanf("%d", &y);
+                    printf("nama : ");
+
+                    tulisGerak(arrGerak, &jumlahGerak, x, y);
+					
 				}
                 break;
             case 3:
