@@ -18,6 +18,16 @@ void ADV(FILE *arsip) {
 void START(FILE *arsip) {
     ADV(arsip);
 }
+//Fungsi untuk menjalankan animasi
+void wait(float x) {
+	time_t start;
+	time_t current;
+	time(&start);
+	do{
+	    time(&current);
+	} while (difftime(current,start) < x); 
+} 
+
 // Fungsi tambahan untuk mengabaikan spasi, enter, dan tab
 void AbaikanBlank(FILE *arsip) {
     while (!EOP && (CC == ' ' || CC == '\n' || CC == '\r' || CC == '\t')) {
@@ -150,4 +160,49 @@ void cetakTabelHadiah(Hadiah arrHadiah[], int jumlahHadiah) {
         arrHadiah[i].skor); 
 } 
     printf("--------------------------------------------------------\n"); 
+}
+
+void tampilkanPapan(Hadiah arrHadiah[], int jumlahHadiah, 
+    int kOx, int kOy, int panjang, int lebar, int skor){ //kox itu koordinat posisi (o)x sekarang, koy itu koordinat posisi sekarang (O)y
+    int i, j, h, ketemu;
+
+    // ini garis atas papann 
+    printf("|");
+    for (j = 0; j < lebar; j++) {
+        printf("-");
+    }
+    printf("|\n");
+
+    // ini buat loop baris
+    for (i = 0; i < panjang; i++) {
+        printf("|");
+        // dilanjut ini loop kolomnya
+        for (j = 0; j < lebar; j++) {
+            // ini buat cek O, klo dia sesuai sm kox & koy cetak
+            if (j == kOx && i == kOy) {
+                printf("O");
+            } else {
+                // kalo bukan o, hadiah yang di cek udah ada atau belum, kalo ada cetak nama & skornya
+                ketemu = 0;
+                for (h = 0; h < jumlahHadiah; h++) {
+                    if (arrHadiah[h].x == j && arrHadiah[h].y == i) {
+                        printf("%s%d", arrHadiah[h].nama, arrHadiah[h].skor);
+                        ketemu = 1;
+                        break;
+                    }
+                }
+                // kalo gada langsung cetak spasi
+                if (!ketemu) printf(" ");
+            }
+        }
+        printf("|\n"); //ini garis vertikal kanan
+    }
+
+    // buat garis bawah papan
+    printf("|");
+    for (j = 0; j < lebar; j++) printf("-");
+    printf("|\n");
+
+    // ini skor O 
+    printf("Skor O: %d\n", skor);
 }

@@ -74,15 +74,14 @@ int main() {
 	    }
             break;
             case 2:
-				printf("Ingin mengisi: ");
-				scanf(" %c", &jawab);
+		printf("Ingin mengisi: ");
+		scanf(" %c", &jawab);
 				
                 if (jawab == 'Y' || jawab == 'y') {
                     printf("x : ");
                     scanf("%d", &x);
                     printf("y : ");
                     scanf("%d", &y);
-                    printf("nama : ");
 
                     tulisGerak(arrGerak, &jumlahGerak, x, y);
 					
@@ -92,10 +91,14 @@ int main() {
 
                 break;
             case 4:
+		baca_hadiah(arrHadiah, &jumlahHadiah);
+     		baca_gerak(arrGerak, &jumlahGerak);
                 printf("Masukkan panjang papan: ");
                 scanf("%d", &panjang);
                 printf("Masukkan lebar papan: ");
                 scanf("%d", &lebar);
+                tampilkanPapan(arrHadiah, jumlahHadiah, arrGerak[0].x, arrGerak[0].y, 
+		panjang, lebar, 0);
             break;
             case 5:
                 system("exit");
