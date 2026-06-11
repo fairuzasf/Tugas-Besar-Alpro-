@@ -180,7 +180,7 @@ void tampilkanPapan(Hadiah arrHadiah[], int jumlahHadiah,
         for (j = 0; j < lebar; j++) {
             // ini buat cek O, klo dia sesuai sm kox & koy cetak
             if (j == kOx && i == kOy) {
-                printf("   O    ");
+                printf("    O    ");
             } else {
                 // kalo bukan o, hadiah yang di cek udah ada atau belum, kalo ada cetak nama & skornya
                 ketemu = 0;
