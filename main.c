@@ -9,14 +9,17 @@ int main() {
     int jumlahHadiah = 0;
 	Gerak arrGerak[100];
 	int jumlahGerak = 0;
-
+    int panjang;
+    int lebar;
+    
     do {
         // Menampilkan teks menu
         printf("\nMenu:\n");
         printf("1. Tambah hadiah\n");
         printf("2. Tambah gerak O\n");
         printf("3. Simulasi Lite O\n");
-        printf("4. Keluar\n");
+        printf("4. Input panjang & lebar papan\n");
+        printf("5. Keluar\n");
         printf("Masukkan Menu: ");
 
         scanf("%d", &pilihan);
@@ -89,13 +92,19 @@ int main() {
 
                 break;
             case 4:
-                printf("exit");
+                printf("Masukkan panjang papan: ");
+                scanf("%d", &panjang);
+                printf("Masukkan lebar papan: ");
+                scanf("%d", &lebar);
+            break;
+            case 5:
+                system("exit");
                 break;
             default:
-                printf("Pilihan tidak valid. Silakan masukkan angka 1-4.\n");
+                printf("Pilihan tidak valid. Silakan masukkan angka 1-5.\n");
         }
 
-    } while (pilihan != 4);
+    } while (pilihan != 5);
 
     return 0;
 }
