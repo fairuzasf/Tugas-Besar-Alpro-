@@ -105,29 +105,6 @@ void baca_gerak(Gerak arrGerak[], int *jumlahGerak) {
     }
 }
 // --- FUNGSI PENULISAN FILE ---
-
-void tulisHadiah(Hadiah arrHadiah[], int *jumlahHadiah, int x, int y, char nama[], int skor) {
-    baca_hadiah(arrHadiah, jumlahHadiah); // Memanggil fungsi yang diperbarui
-
-    arrHadiah[*jumlahHadiah].x = x;
-    arrHadiah[*jumlahHadiah].y = y;
-    arrHadiah[*jumlahHadiah].skor = skor;
-    strcpy(arrHadiah[*jumlahHadiah].nama, nama);
-    (*jumlahHadiah)++;
-
-    FILE *arsip = fopen("thadiah.txt", "w");
-    if (arsip != NULL) {
-        for (int i = 0; i < *jumlahHadiah; i++) {
-            fprintf(arsip, "%d %d %s %d\n", arrHadiah[i].x, arrHadiah[i].y, arrHadiah[i].nama, arrHadiah[i].skor);
-        }
-        fprintf(arsip, "## ## ## ##\n");
-        fclose(arsip);
-        printf("Berhasil mencatat hadiah '%s' di koordinat (%d, %d).\n", nama, x, y);
-    } else {
-        printf("Gagal membuka file thadiah.txt untuk ditulis!\n");
-    }
-}
-
 void tulisGerak(Gerak arrGerak[], int *jumlahGerak, int x, int y) {
     baca_gerak(arrGerak, jumlahGerak); // Memanggil fungsi yang diperbarui
 

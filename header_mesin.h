@@ -24,7 +24,6 @@ void wait(float x);		// deklarasi fungsi wait
 void AbaikanBlank(FILE *arsip); // fungsi untuk mengabaikan karakter yang kosong
 void baca_hadiah(Hadiah arrHadiah[], int *jumlahHadiah); // fungsi untuk membaca hadiah
 void baca_gerak(Gerak arrGerak[], int *jumlahGerak); // fungsi untuk membaca gerak
-void tulisHadiah(Hadiah arrHadiah[], int *jumlahHadiah, int x, int y, char nama[], int skor); // fungsi untuk menyimpan inputan hadiah 
 void tulisGerak(Gerak arrGerak[], int *jumlahGerak, int x, int y); // fungsi untuk menyimpan inputan gerak
 void cetakTabelHadiah(Hadiah arrHadiah[], int jumlahHadiah); //fungsi menampilkan data hadiah
 void tampilkanPapan(Hadiah arrHadiah[], int jumlahHadiah,  
