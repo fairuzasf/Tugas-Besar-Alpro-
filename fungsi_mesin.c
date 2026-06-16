@@ -183,3 +183,82 @@ void tampilkanPapan(Hadiah arrHadiah[], int jumlahHadiah,
     // ini skor O 
     printf("Skor O: %d\n", skor);
 }
+// Fungsi Simulasi LITE O
+void simulasi(Hadiah arrHadiah[], int jumlahHadiah, Gerak arrGerak[], int jumlahGerak, int panjang, int lebar) {
+    // Menyimpan total skor yang berhasil dikumpulkan 0
+    int skorTotal = 0;
+    int dimakan[100];
+    
+    // Inisialisasi seluruh status hadiah menjadi belum dimakan 
+    for(int i = 0; i < jumlahHadiah; i++) {
+        dimakan[i] = 0;
+    }
+
+    // Menjalankan seluruh gerakan O sesuai isi file satu per satu
+    for(int g = 0; g < jumlahGerak; g++) {
+        // Mengambil posisi 0 saat langkah ke-g
+        int kOx = arrGerak[g].x;
+        int kOy = arrGerak[g].y;
+
+        // Mengecek apakah posisi O sama dengan posisi hadiah 
+        // Jika sama, hadiah dianggap dimakan 
+        for(int h = 0; h < jumlahHadiah; h++) {
+            if(dimakan[h] == 0 && arrHadiah[h].x == kOx && arrHadiah[h].y == kOy) {
+                // Menambahkan skor hadiah ke total skor
+                skorTotal += arrHadiah[h].skor;
+                dimakan[h] = 1; // Tandai hadiah telah habis dikonsumsi
+            }
+        }
+
+        // Membersihkan layar agar memunculkan efek animasi
+        system("cls"); // Membersihkan layar terminal Windows untuk animasi
+        // Menampilkan posisi 0 saat ini 
+        printf("Posisi O : (%d,%d)\n\n", kOx, kOy);
+      
+        // Mencetak garis batas atas papan
+        for(int x = 0; x <= lebar + 2; x++) printf("- ");
+        printf("\n");
+
+        // Perulangan untuk mencetak seluruh papan 
+        // Perulangan baris (koordinat y)
+        for(int y = 0; y <= panjang; y++) {
+            printf("| "); // Batas kiri papan
+
+            // Perulangan kolom (koordinat x)
+            for(int x = 0; x <= lebar; x++) {
+                int tercetak = 0;
+
+                // Cek apakah posisi saat ini ditempati 0
+                if(x == kOx && y == kOy) {
+                    printf("O ");
+                    tercetak = 1;
+                }
+
+                // Jika belum ada yang dicetak, cek apakah ada hadiah di posisi tersebut
+                if(!tercetak) {
+                    for(int h = 0; h < jumlahHadiah; h++) {
+                        if(dimakan[h] == 0 && arrHadiah[h].x == x && arrHadiah[h].y == y) {
+                            printf("%s%d ", arrHadiah[h].nama, arrHadiah[h].skor);
+                            tercetak = 1;
+                            break;
+                        }
+                    }
+                }
+
+                // Jika tidak ada 0 maupun hadiah, tampilkan titik sebagai sel kosong 
+                if(!tercetak) {
+                    printf(". ");
+                }
+            }
+            printf("|\n"); // Cetak batas kanan papan
+        }
+
+        // Mencetak garis batas bawah papan
+        for(int x = 0; x <= lebar + 2; x++) printf("- ");
+        printf("\n");
+        // Menampilkan skor sementara 
+        printf("\nSkor O : %d\n", skorTotal);
+
+        wait(1); // Efek jeda waktu animasi 1 detik per langkah
+    }
+}
