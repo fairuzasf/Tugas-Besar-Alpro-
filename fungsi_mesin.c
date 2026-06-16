@@ -262,3 +262,20 @@ void simulasi(Hadiah arrHadiah[], int jumlahHadiah, Gerak arrGerak[], int jumlah
         wait(1); // Efek jeda waktu animasi 1 detik per langkah
     }
 }
+
+void VoidAnimasiMakan(Hadiah arrHadiah[], int *jumlahHadiah, int kOx, int kOy, int *skor) {
+    for (int h = 0; h < *jumlahHadiah; h++) {
+        // Jika posisi O menabrak hadiahhh
+        if (arrHadiah[h].x == kOx && arrHadiah[h].y == kOy) {
+            *skor += arrHadiah[h].skor; // Tambahkan skor
+            
+            // geser elemen di kanannya ke kiri (hapus elemen indeks ke-h)
+            for (int i = h; i < *jumlahHadiah - 1; i++) {
+                arrHadiah[i] = arrHadiah[i + 1];
+            }
+            
+            (*jumlahHadiah)--; // kurangi total kuota hadiah
+            break; // keluar dari pencarian karena hadiah sudah dimakan
+        }
+    }
+}
