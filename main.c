@@ -88,7 +88,17 @@ int main() {
 				}
                 break;
             case 3:
+		baca_hadiah(arrHadiah, &jumlahHadiah);
+		baca_gerak(arrGerak, &jumlahGerak);
 
+   		if (jumlahGerak == 0) {
+ 		    printf("Belum ada data gerak. Silahkan tambah gerak dulu pada menu 2\n");
+		}else if (panjang == 0 || lebar == 0){
+		    printf("Atur Panjang dan lebar terlebih dahulu di menu 4\n");
+  		}else{
+		    simulasi(arrHadiah, &jumlahHadiah, arrGerak, jumlahGerak, panjang, lebar, &skor);
+		
+		}
                 break;
             case 4:
 		baca_hadiah(arrHadiah, &jumlahHadiah);
