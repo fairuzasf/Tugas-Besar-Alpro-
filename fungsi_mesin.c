@@ -166,7 +166,13 @@ void tampilkanPapan(Hadiah arrHadiah[], int jumlahHadiah,
                     if (arrHadiah[h].x == j && arrHadiah[h].y == i) {
 			char temp[20];
                         sprintf(temp, "%s%d", arrHadiah[h].nama, arrHadiah[h].skor);
-			printf("%-*s", lebarkol, temp);
+			if (h % 2 == 0) {
+    			    printf("%s", MERAH);   // hadiah index genap = merah
+			} else {
+    			    printf("%s", BIRU);    // hadiah index ganjil = biru
+			}
+		       	printf("%-*s", lebarkol, temp);
+			printf("%s", RESET);       // reset warna biar teks setelahnya nggak ikut merah/biru
                         ketemu = 1;
                         break;
                     }
@@ -229,7 +235,7 @@ void simulasi(Hadiah arrHadiah[], int *jumlahHadiah, Gerak arrGerak[], int jumla
         // Perulangan untuk mencetak seluruh papan 
         // Perulangan baris (koordinat y)
         for(int y = 0; y < panjang; y++) {
-            printf("| "); // Batas kiri papan
+            printf("|"); // Batas kiri papan
 
             // Perulangan kolom (koordinat x)
             for(int x = 0; x < lebar; x++) {
@@ -243,16 +249,21 @@ void simulasi(Hadiah arrHadiah[], int *jumlahHadiah, Gerak arrGerak[], int jumla
                         if(arrHadiah[h].x == x && arrHadiah[h].y == y) {
 			   char temp [20];
                            sprintf(temp, "%s%d", arrHadiah[h].nama, arrHadiah[h].skor);
-			   printf("%-*s", lebarkol, temp);
+			   if (h % 2 == 0) {
+    				printf("%s", MERAH);   // hadiah index genap = merah
+			   } else {
+    				printf("%s", BIRU);    // hadiah index ganjil = biru
+			   }
+		       	   printf("%-*s", lebarkol, temp);
+			   printf("%s", RESET);       // reset warna biar teks setelahnya nggak ikut merah/biru
                            tercetak = 1;
 			   break;
 			}
 		     }
-                     if(!tercetak) printf("%-*s", lebarkol, "");
-                       
+                     if(!tercetak) printf("%-*s", lebarkol, "");       
                 }
             }
-	    printf(" |\n");
+	    printf("|\n");
         }
 
         // Mencetak garis batas bawah papan

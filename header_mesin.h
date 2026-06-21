@@ -34,5 +34,8 @@ void simulasi(Hadiah arrHadiah[], int *jumlahHadiah, Gerak arrGerak[], int jumla
 int baca_angka(FILE *arsip);	//ini buat baca dr file karakter perkarakter angka jadi satu. ex: inputan buat x itu 1,0 dijadiin 10
 void baca_string(FILE *arsip, char *s); //klo ini buat baca dr file karakter huruf ex: a,a jadi aa
 
+#define RESET "\033[0m"
+#define MERAH "\033[31m"
+#define BIRU  "\033[34m"
 
 #endif

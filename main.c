@@ -26,12 +26,12 @@ int main() {
 
         switch (pilihan) {
             case 1:
-        baca_hadiah(arrHadiah, &jumlahHadiah);
-            cetakTabelHadiah(arrHadiah, jumlahHadiah);
+        	baca_hadiah(arrHadiah, &jumlahHadiah);
+            	cetakTabelHadiah(arrHadiah, jumlahHadiah);
 
-            printf("Ingin mengisi: ");
-            scanf(" %c", &jawab);
-            if (jawab == 'Y' || jawab == 'y') {
+            	printf("Ingin mengisi: ");
+	        scanf(" %c", &jawab);
+	        if (jawab == 'Y' || jawab == 'y') {
                 printf("x : ");
                 scanf("%d", &x);
                 printf("y : ");
@@ -97,7 +97,6 @@ int main() {
 		    printf("Atur Panjang dan lebar terlebih dahulu di menu 4\n");
   		}else{
 		    simulasi(arrHadiah, &jumlahHadiah, arrGerak, jumlahGerak, panjang, lebar, &skor);
-		
 		}
                 break;
             case 4:
@@ -114,7 +113,9 @@ int main() {
                 system("exit");
                 break;
             default:
-                printf("Pilihan tidak valid. Silakan masukkan angka 1-5.\n");
+                printf("Pilihan tidak valid. Silakan masukkan angka 1-5.\n"); // jika user memasukkan angka >5 dan <1
+		int temp; // variabel tampungan dibuat buat nampung tiap karakter yang dibuang dari buffer
+    		while ((temp = getchar()) != '\n' && temp != EOF); //jika user memasukkan karakter selain angka
         }
 
     } while (pilihan != 5);
