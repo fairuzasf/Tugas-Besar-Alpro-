@@ -7,10 +7,11 @@ int main() {
     char jawab;
     Hadiah arrHadiah[100];
     int jumlahHadiah = 0;
-	Gerak arrGerak[100];
-	int jumlahGerak = 0;
+    Gerak arrGerak[100];
+    int jumlahGerak = 0;
     int panjang;
     int lebar;
+    int temp;
     
     do {
         // Menampilkan teks menu
@@ -110,12 +111,12 @@ int main() {
 		panjang, lebar, 0);
             break;
             case 5:
+		printf("Terimakasih !!\n");
                 system("exit");
                 break;
             default:
-                printf("Pilihan tidak valid. Silakan masukkan angka 1-5.\n"); // jika user memasukkan angka >5 dan <1
-		int temp; // variabel tampungan dibuat buat nampung tiap karakter yang dibuang dari buffer
     		while ((temp = getchar()) != '\n' && temp != EOF); //jika user memasukkan karakter selain angka
+                printf("Pilihan tidak valid. Silakan masukkan angka 1-5.\n"); // jika user memasukkan angka >5 dan <1
         }
 
     } while (pilihan != 5);
