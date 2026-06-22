@@ -127,7 +127,7 @@ void tulisGerak(Gerak arrGerak[], int *jumlahGerak, int x, int y) {
 
 void cetakTabelHadiah(Hadiah arrHadiah[], int jumlahHadiah) { 
     printf("Isi hadiah saat ini\n"); 
-    printf("------------------------------------------\n"); 
+    printf("-------------------------\n"); 
     printf("|%-4s|%-4s|%-6s|%-6s|\n","x","y", "nama", "skor"); //buat header tabell
         for (int i = 0; i< jumlahHadiah; i++) { //loop buatt nyetak tiap baris data hadiah di tabel
             printf("|%-4d|%-4d|%-6s|%-6d|\n", 
@@ -136,7 +136,7 @@ void cetakTabelHadiah(Hadiah arrHadiah[], int jumlahHadiah) {
         arrHadiah[i].nama, 
         arrHadiah[i].skor); 
 } 
-    printf("--------------------------------------------------------\n"); 
+    printf("-------------------------\n"); 
 }
 
 void tampilkanPapan(Hadiah arrHadiah[], int jumlahHadiah, 

@@ -30,7 +30,7 @@ int main() {
         	baca_hadiah(arrHadiah, &jumlahHadiah);
             	cetakTabelHadiah(arrHadiah, jumlahHadiah);
 
-            	printf("Ingin mengisi: ");
+            	printf("Ingin mengisi ? (y/n): ");
 	        scanf(" %c", &jawab);
 	        if (jawab == 'Y' || jawab == 'y') {
                 printf("x : ");
@@ -75,7 +75,7 @@ int main() {
 	    }
             break;
             case 2:
-		printf("Ingin mengisi: ");
+		printf("Ingin mengisi ? S(y/n): ");
 		scanf(" %c", &jawab);
 				
                 if (jawab == 'Y' || jawab == 'y') {

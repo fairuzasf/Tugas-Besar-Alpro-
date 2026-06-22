@@ -27,7 +27,7 @@ void baca_gerak(Gerak arrGerak[], int *jumlahGerak); // fungsi untuk membaca ger
 void tulisGerak(Gerak arrGerak[], int *jumlahGerak, int x, int y); // fungsi untuk menyimpan inputan gerak
 void cetakTabelHadiah(Hadiah arrHadiah[], int jumlahHadiah); //fungsi menampilkan data hadiah
 void tampilkanPapan(Hadiah arrHadiah[], int jumlahHadiah,  
-    int kOx, int kOy, int panjang, int lebar, int skor);   //fungsi untuk menampilkan papan
+     int kOx, int kOy, int panjang, int lebar, int skor);   //fungsi untuk menampilkan papan
 void animasiMakan(Hadiah arrHadiah[], int *jumlahHadiah, int kOx, int kOy, int *skor);
 void simulasi(Hadiah arrHadiah[], int *jumlahHadiah, Gerak arrGerak[], int jumlahGerak, int panjang, int lebar, int *skor);
 
