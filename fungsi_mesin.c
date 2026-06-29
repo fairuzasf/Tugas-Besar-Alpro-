@@ -278,6 +278,6 @@ void simulasi(Hadiah arrHadiah[], int *jumlahHadiah, Gerak arrGerak[], int jumla
         wait(1); // Efek jeda waktu animasi 1 detik per langkah
     }
     
-    printf("\n=== Simulasi Selesai ===\n");
+    printf("\nSimulasi Selesai !\n");
     printf("Skor akhir O: %d\n", *skor);
 }
